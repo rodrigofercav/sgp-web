@@ -1,0 +1,25 @@
+.is-inactive * {
+  color: #dc3545;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.is-expired * {
+  color: #ffc107;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.both-inactive-expired * {
+  background: #ffc1078a;
+  color: #dc3545;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.actions * {
+  color: black;
+  background: transparent;
+  font-style: normal;
+  font-weight: lighter;
+}
