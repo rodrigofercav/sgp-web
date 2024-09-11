@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <span class="fw-bold fs-3">Product List</span>
+  <button class="btn btn-primary btn-lg" type="button">Add Product</button>
+</div>
+
+<table class="table table-bordered table-striped fs-5 align-middle">
+  <thead class="table-primary align-middle">
+    <tr>
+      <th scope="col" class="text-center">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col" class="text-end">Price</th>
+      <th scope="col" class="text-end">Quantity</th>
+      <th scope="col" class="min-width-cell text-center">Expiry Date</th>
+      <th scope="col">Status</th>
+      <th scope="col" class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products" [ngClass]="getCssClassesForProduct(product)">
+      <th scope="row" class="text-center">{{ product.id }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td class="text-end">{{ product.price }}</td>
+      <td class="text-end">{{ product.quantity }}</td>
+      <td class="text-center">{{ product.expiry_date }}</td>
+      <td>{{ product.status }}</td>
+      <td class="text-center actions">
+        <a href="#edit"><i class="fas fa-edit"></i></a>
+        <a href="#delete"><i class="fas fa-trash-alt ms-4"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <span class="fs-5" *ngIf="products; else NoProducts">Products found {{ products.length }}</span>
+  <ng-template #NoProducts>
+    <span class="fs-5">No products found</span>
+  </ng-template>
+</div>
+
+<div class="text-end mt-4 mb-5 pb-5">
+  <i class="fas fa-circle text-danger p-2"></i><span> Product Inactive</span>
+  <i class="fas fa-circle text-warning ms-3 p-2"></i><span> Product Expired</span>
+  <i class="fas fa-circle text-danger ms-3 p-2" style="background-color: #ffc1078a;"></i><span class="me-2"> Both</span>
+</div>
