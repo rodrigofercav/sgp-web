@@ -23,3 +23,7 @@
   font-style: normal;
   font-weight: lighter;
 }
+
+.min-width-cell {
+  min-width: 130px;
+}
